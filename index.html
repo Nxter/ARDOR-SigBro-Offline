@@ -1,0 +1,400 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SigBro OFFLINE</title>
+  </head>
+<body>
+	<style>
+    a.nav-link { 
+      color: #fff;
+    }
+    
+    a.nav-link:hover {
+      color: #aaa;
+    }
+
+    .nxter-input-group-textarea {
+      height: 8rem;
+    }
+
+    .nxter-space {
+      height: 8rem;
+    }
+
+    .nxter-textarea { 
+      font-size: 75%;
+    }
+
+    .col-12 {
+      padding-bottom: 0.5rem;
+    }
+
+    .jimbotron {
+      margin-top: 3rem;
+    }
+
+    .card {
+      min-height: 350px;
+    }
+
+	</style>
+
+	<header class='d-print-none'>
+		<div class="navbar navbar-dark bg-dark box-shadow fixed-top">
+			<div class="container d-flex justify-content-between">
+				<a href="#" class="navbar-brand d-flex align-items-center">
+					<strong>SigBro OFFLINE</strong>
+				</a>
+				<nav class="nav nav-masthead justify-content-center">
+					<a class="nav-link" href="#New">New</a>
+					<a class="nav-link" href="#Sign">Sign</a>
+					<a class="nav-link" href="#Token">Token</a>
+					<a class="nav-link" href="#QR">QR</a>
+					<a class="nav-link" href="#About">About</a>
+				</nav>
+			</div>
+		</div>
+  </header>
+
+  <main role="main">
+
+    <!-- ************************************************* -->
+    <div class="nxter-space d-print-none"></div>
+    <a name="new"> </a>
+    <!-- ************************************************* -->
+    <div class="jumbotron d-print-none">
+      <div class="container">
+        <h1 class="display-3">New Account</h1>
+        <p>1. "Random" button generates a random Ardor passphrase and account address.<br>
+        This passphrase gives access to an account on the ARDR chain and any child chain.<br>
+        2. "Generate QR" generates QR codes for your public account address and your secret passphrase. NEVER disclose your secret passphrase or secret passphrase QR to anyone!<br>
+        3. The "Print" button generates a <strong>PAPERWALLET</strong>.</p>
+        <p>Print it, store it in a safe place or use it to set up our SigBro mobile app.</p>
+        <p><i>If you already have an Ardor account and passphrase, you can paste your passphrase into the first field and tap "Generate". Follow step 2 and 3 to print a paperwallet for your account.</i></p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row d-print-none"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your passphrase: </span>
+          </div>
+          <input class="form-control" type="text" id="nxter-new-passphrase">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary d-print-none" type="button" id="nxter-random-passphrase">Random</button>
+            <button class="btn btn-outline-primary d-print-none" type="button" id="nxter-generate-account">Generate</button>
+          </div>
+        </div>
+      </div></div>
+      <div class="row d-print-none"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your account: </span>
+          </div>
+          <input class="form-control" type="text" id="nxter-new-account" readonly>
+        </div>
+      </div></div>
+      <div class="row d-print-none"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your public key: </span>
+          </div>
+          <input class="form-control" type="text" id="nxter-new-publickey" readonly>
+        </div>
+      </div></div>
+
+      <div class="row"><div class="col-12">
+        <div class="btn-group" role="group" aria-label="button group for generate QR code">
+          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-new-section">Clear section data</button>
+          <button type="button" class="btn btn-success d-print-none" id="nxter-generate-qr-code-new-section">Generate QR code</button>
+          <button type="button" class="btn btn-danger d-print-none" id="nxter-print-new-section">Print</button>
+        </div>
+      </div></div>
+
+      <div class="row d-print-none">
+        <div class="col-6">
+          <div id="nxter-new-pass-qrcode"> </div>
+        </div>
+        <div class="col-6">
+          <div id="nxter-new-account-qrcode"> </div>
+        </div>
+      </div>
+
+      <div class="row" id='print-new-section'>
+        <div class="col-6 d-none d-print-block">
+          <div class="card">
+            <div class="card-header"><strong id="nxter-new-account-print-1" class="text-center">ARDOR-...</strong></div>
+            <div class="card-body text-center" id="nxter-new-account-qrcode-print"></div>
+          </div>
+        </div>
+       <div class="col-6 d-none d-print-block">
+          <div class="card">
+            <div class="card-header"><strong id="nxter-new-account-print-2" >PRIVATE SECTION</strong></div>
+            <div class="card-body">
+              <p><strong>Public Key:</strong></p>
+              <p id="nxter-new-account-public-key-print"></p>
+              <p><strong>SECRET Passphrase:</strong></p>
+              <p id="nxter-new-account-passphrase-print"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-none nxter-space d-print-block" > </div>
+
+        <div class="col-6 d-none d-print-block">
+          <div class="card">
+            <div class="card-header"><strong>Made by 'NXTER.ORG'</strong></div>
+            <div class="card-body">
+              <p>Print it, cut in the middle, stick the account QR part in your pocket and hide the other part at home.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 d-none d-print-block">
+          <div class="card">
+            <div class="card-header"><strong id="nxter-new-account-print" class="text-center">SECRET Passphrase</strong></div>
+            <div class="card-body text-center" id="nxter-new-passphrase-qrcode-print"></div>
+          </div>
+        </div>
+ 
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- ************************************************* -->
+    <div class="nxter-space d-print-none"></div>
+    <a name="Sign"> </a>
+    <!-- ************************************************* -->
+    <div class="jumbotron d-print-none">
+      <div class="container">
+        <h1 class="display-3">Sign transaction</h1>
+        <p>Sign Ardor transactions <strong>OFFLINE</strong>. <sup>*</sup>) <sup>**</sup>)</p> 
+        <p>1. Initiate a transaction with an online Ardor Client or at Nxter.org<br>
+        2. Copy and paste the <strong>unsigned transaction bytes</strong> into the form field below<br>
+        3. Enter your secret passphrase in an offline environment<br>
+        4. Press "Check" to see transaction details<br>
+        5. Press "Sign" to sign the transaction and generate signed transaction bytes<br>
+        6. Copy and paste your signed transaction bytes into an online client or broadcasting service..<br>
+        7. Copy and paste your signed transaction bytes into an online client or broadcasting service.</p>
+        <p><sup>*</sup>) SigBro OFFLINE works with ARDR and all Ardor child chains.<br>
+        <sup>**</sup>) SigBro OFFLINE does not support transactions with prunable messages. For this, we recommend you to use the SigBro mobile signing app. </p>
+      </div>
+    </div>
+
+    <div class="container d-print-none">
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text nxter-input-group-textarea">Unsigned Transaction Bytes: </span>
+          </div>
+          <textarea class="form-control nxter-textarea" id="nxter-unsigned-bytes"></textarea>
+        </div>
+      </div></div>
+
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your passphrase: </span>
+          </div>
+          <input class="form-control" type="password" id="nxter-sign-passphrase">
+        </div>
+      </div></div>
+
+      <div class="row"><div class="col-12">
+        <div class="btn-group" role="group" aria-label="button group for generate QR code">
+          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-sign-section">Clear section data</button>
+          <button type="button" class="btn btn-success d-print-none" id="nxter-check-unsigned-tx">Check</button>
+          <button type="button" class="btn btn-danger d-print-none" id="nxter-sign-transaction">SIGN</button>
+        </div>
+      </div></div>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_1">&nbsp;</span></div><input class="form-control" type="text" id="review_val1" readonly>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_2">&nbsp;</span></div><input class="form-control" type="text" id="review_val2" readonly>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_3">&nbsp;</span></div><input class="form-control" type="text" id="review_val3" readonly>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_4">&nbsp;</span></div><input class="form-control" type="text" id="review_val4" readonly>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_5">&nbsp;</span></div><input class="form-control" type="text" id="review_val5" readonly>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="input-group">
+            <div class="input-group-prepend"><span class="input-group-text" id="review_6">&nbsp;</span></div><input class="form-control" type="text" id="review_val6" readonly>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text nxter-input-group-textarea">Signed Transaction Bytes: </span>
+          </div>
+          <textarea class="form-control nxter-textarea" id="nxter-signed-bytes" readonly></textarea>
+        </div>
+      </div></div>
+
+    </div> <!-- /container -->
+
+
+    <!-- ************************************************* -->
+    <div class="nxter-space d-print-none"></div>
+    <a name="Token"> </a>
+    <!-- ************************************************* -->
+    <div class="jumbotron d-print-none">
+      <div class="container">
+        <h1 class="display-3">Token</h1>
+        <p>Sign to prove ownership of your account.</p> 
+        <p>1. Write any text data in the form field<br>
+        2. Enter your passphrase and press "Generate" to generate a token.<br>
+        3. Copy the token and paste it anywhere to prove that you own the account (passphrase).<br>
+        <p>The token will be different next time you press "Generate" - this is normal, don't worry.<br>
+        <strong>This is an absolutely safe way to auth</strong> - no one can decrypt your passphrase from the token.</p>
+      </div>
+    </div>
+
+    <div class="container d-print-none">
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Specific key for token: </span>
+          </div>
+          <input class="form-control" type="text" id="nxter-token-site">
+        </div>
+      </div></div>
+
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Your passphrase: </span>
+          </div>
+          <input class="form-control" type="text" id="nxter-token-passphrase">
+        </div>
+      </div></div>
+
+      <div class="row"><div class="col-12">
+        <div class="btn-group" role="group" aria-label="button group for generate QR code">
+          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-token-section">Clear section data</button>
+          <button type="button" class="btn btn-danger d-print-none" id="nxter-token-generate">SIGN</button>
+        </div>
+      </div></div>
+
+
+      <div class="row"><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text nxter-input-group-textarea">Your token: </span>
+          </div>
+          <textarea class="form-control nxter-textarea" aria-label="Your token" id="nxter-token-text" readonly></textarea>
+        </div>
+      </div></div>
+
+
+    </div> <!-- /container -->
+
+
+    <!-- ************************************************* -->
+    <div class="nxter-space d-print-none"></div>
+    <a name="QR"> </a>
+    <!-- ************************************************* -->
+    <div class="jumbotron d-print-none">
+      <div class="container">
+        <h1 class="display-3">QR Code</h1>
+        <p>Enter any NXT / Ardor / clone public account here and generate a QR code.<br></p> 
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row d-print-none"  id='print-qr-section'><div class="col-12">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text nxter-input-group-textarea">Paste your text: </span>
+          </div>
+          <textarea class="form-control nxter-textarea" aria-label="Paste your text" id="nxter-text-for-qr-code"></textarea>
+        </div>
+      </div></div>
+
+      <div class="row d-print-none"><div class="col-12">
+        <div class="btn-group" role="group" aria-label="button group for generate QR code">
+          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-qr-section">Clear section data</button>
+          <button type="button" class="btn btn-success d-print-none" id="nxter-generate-qr-code">Generate QR code</button>
+          <button type="button" class="btn btn-danger d-print-none" id="nxter-print-qr-section">Print</button>
+        </div>
+      </div></div>
+      <div class="row" id='print-qr-section'>
+        <div class="col-12">
+          <div id="nxter-qrcode"> </div>
+        </div>
+      </div>
+
+    </div> <!-- /container -->
+
+
+
+
+    <!-- ************************************************* -->
+    <div class="nxter-space d-print-none"></div>
+    <a name="About"> </a>
+    <!-- ************************************************* -->
+    <div class="jumbotron d-print-none">
+      <div class="container">
+        <h1 class="display-3 d-print-none">About NxterBridge Offline</h1>
+        <p>SigBro Offline: <a href='https://www.nxter.org/offline-about' target=_blank>https://nxter.org/offline</a> <br>
+        FAQ and Helpdesk: <a href='https://forum.nxter.org/c/offline' target=_blank>forum.nxter.org</a> <br>
+        </p> 
+        <p>By using this software you agree to the Terms and Conditions @ nxter.org/offline-tc</p>
+      </div>
+    </div>
+
+  <script type="text/javascript">
+    var isNode = false;
+    
+  </script>
+
+  <script src="js/3rdparty/jquery.js"></script>
+  <script src="js/3rdparty/jsbn.js"></script>
+  <script src="js/3rdparty/jsbn2.js"></script>
+  <script src="js/crypto/curve25519.js"></script>
+  <script src="js/crypto/crypto-js.js"></script>
+  <script src="js/util/extensions.js"></script>
+  <script src="js/util/converters.js"></script>
+  <script src="js/util/nxtaddress.js"></script>
+  <script src="js/nrs.constants.js"></script>
+  <script src="js/nrs.util.js"></script>
+  <script src="js/nrs.encryption.js"></script>
+  <script src="js/crypto/passphrasegenerator.js"></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src=""></script>
+  <script src="js/nxter-parse.js"></script>
+  <script src="js/nxter-bridge.js"></script>
+  <!-- http://jeromeetienne.github.io/jquery-qrcode/ -->
+  <script type="text/javascript" src="js/3rdparty/jquery.qrcode.min.js"></script>
+
+</body></html>
+
