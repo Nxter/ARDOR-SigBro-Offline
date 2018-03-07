@@ -1,3 +1,3 @@
 ## SHA256
 
-`9c0699bcf19d15ccee736f6a7698a08080d946cf5d88ce446b58878ef5f586c5  ardor.html`
+`ac1fe8295848d6d1f0fa3f4d861d7dc69f592f81c0d08ee7f445ee91bbc2a580  ardor.html`
