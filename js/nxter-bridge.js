@@ -1,62 +1,25 @@
-$('#nxter-clear-qr-section').click( function(e) {
-  e.preventDefault();
-  $('#nxter-qrcode').html('');
-  $('#nxter-text-for-qr-code').val('');
-});
-
-$('#nxter-generate-qr-code').click( function(e) {
-  e.preventDefault();
-  var text4qr = $('#nxter-text-for-qr-code').val().trim();
-  $('#nxter-qrcode').html('');
-  $('#nxter-qrcode').qrcode({ width: 256, height: 256, text: text4qr });
-
-});
-
+// Wallet -> I have an account
 $('#nxter-generate-account').click( function(e) {
   e.preventDefault();
+  $('#nxter-generate-own-account-tip').removeClass('d-none');
   var new_random_password = $('#nxter-new-passphrase').val().trim();
   var publicKey =  NRS.getPublicKey(converters.stringToHexString(new_random_password)) ;
   var accountId = NRS.getAccountIdFromPublicKey(publicKey, true);
   $('#nxter-new-publickey').val(publicKey);
   $('#nxter-new-account').val(accountId);
-  // clear qr when generate new account
+
+  // generate qr
   $('#nxter-new-pass-qrcode').html('');
   $('#nxter-new-account-qrcode').html('');
+
+  $('#nxter-new-section').removeClass('d-none');
+
+  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
+  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
   
 });
 
-$('#nxter-print-qr-section').click(function(e) {
-  e.preventDefault();
-  $('#print-qr-section').removeClass('d-print-none');
-  $('#print-new-section').addClass('d-print-none');
-
-  window.print();
-});
-
-$('#nxter-print-new-section').click(function(e) {
-  e.preventDefault();
-
-  $('#print-new-section').removeClass('d-print-none');
-  $('#print-qr-section').addClass('d-print-none');
-
-  var new_random_password = $('#nxter-new-passphrase').val().trim();
-  var publicKey =  NRS.getPublicKey(converters.stringToHexString(new_random_password)) ;
-  var accountId = NRS.getAccountIdFromPublicKey(publicKey, true);
-  // clearing
-  $('#nxter-new-account-qrcode-print').html('');
-  $('#nxter-new-passphrase-qrcode-print').html('');
-
-  // for printing form
-  $('#nxter-new-account-print-1').html(accountId);
-  $('#nxter-new-account-public-key-print').html(publicKey);
-  $('#nxter-new-account-passphrase-print').html(new_random_password);
-  $('#nxter-new-account-qrcode-print').qrcode({ width: 256, height: 256, text: accountId });
-  $('#nxter-new-passphrase-qrcode-print').qrcode({ width: 256, height: 256, text: new_random_password });
-
-
-  window.print();
-});
-
+// Wallet -> create new
 $('#nxter-random-passphrase').click( function(e) {
   e.preventDefault();
   var password = PassPhraseGenerator;
@@ -65,14 +28,25 @@ $('#nxter-random-passphrase').click( function(e) {
 
   $('#nxter-new-passphrase').val(new_random_password);
 
-  // clear qr when generate new account
+  var new_random_password = $('#nxter-new-passphrase').val().trim();
+  var publicKey =  NRS.getPublicKey(converters.stringToHexString(new_random_password)) ;
+  var accountId = NRS.getAccountIdFromPublicKey(publicKey, true);
+  $('#nxter-new-publickey').val(publicKey);
+  $('#nxter-new-account').val(accountId);
+
+  // generate qr
   $('#nxter-new-pass-qrcode').html('');
   $('#nxter-new-account-qrcode').html('');
 
-  $('#nxter-generate-account').click();
+  $('#nxter-new-section').removeClass('d-none');
 
+  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
+  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
+  // hide hint 
+  $('#nxter-generate-own-account-tip').addClass('d-none');
 });
 
+// Wallet -> Clear
 $('#nxter-clear-new-section').click( function(e) {
   e.preventDefault();
   $('#nxter-new-passphrase').val('');
@@ -80,51 +54,54 @@ $('#nxter-clear-new-section').click( function(e) {
   $('#nxter-new-publickey').val('');
   $('#nxter-new-pass-qrcode').html('');
   $('#nxter-new-account-qrcode').html('');
+  $('#nxter-new-section').addClass('d-none');
+
+  $('#nxter-generate-own-account-tip').addClass('d-none');
 });
 
-$('#nxter-generate-qr-code-new-section').click( function(e) {
-  e.preventDefault();
-  $('#nxter-new-pass-qrcode').html('');
-  $('#nxter-new-account-qrcode').html('');
-
-  var new_pass = $('#nxter-new-passphrase').val().trim();
-  var new_acc = $('#nxter-new-account').val().trim();
-
-  $('#nxter-new-pass-qrcode').qrcode({ width: 256, height: 256, text: new_pass });
-  $('#nxter-new-pass-qrcode').append('<br><strong>SECRET Passphrase</strong>');
-
-  $('#nxter-new-account-qrcode').qrcode({ width: 256, height: 256, text: new_acc });
-  $('#nxter-new-account-qrcode').append('<br><strong>Your AccountRS</strong>');
-
-
+// Wallet -> Autogenerate
+$('#nxter-new-passphrase').keydown( function(e) {
+  $('#nxter-generate-account').click();
 });
 
-
-$('#nxter-sign-transaction').click( function(e) {
+// Wallet -> Print
+$('#nxter-print-new-section').click(function(e) {
   e.preventDefault();
+  // clear old data
+  $('#nxter-new-print-account').html('');
+  $('#nxter-new-print-account-qrcode').html('');
+  $('#nxter-new-print-account-passphrase-qrcode').html('');
+  // update data for accountRS
+  accRS = $('#nxter-new-account').val();
+  $('#nxter-new-print-account').html( accRS );
+  $('#nxter-new-print-account-qrcode').qrcode({ width: 180, height: 180, text: accRS });
+  // update data for private section
+  pubK = $('#nxter-new-publickey').val().trim();
+  prvK = $('#nxter-new-passphrase').val().trim();
+  $('#nxter-new-print-account-public-key').html( pubK );
+  $('#nxter-new-print-account-passphrase').html( prvK );
+  $('#nxter-new-print-account-passphrase-qrcode').qrcode({ width: 180, height: 180, text: prvK });;
+  // hide other printable fields
+  $('#nxter-section-print-qr-section').removeClass('d-print-block');
+  // show form for print
+  $('#nxter-section-print-new-section').addClass('d-print-block') 
 
-  // unsignedJSON
-  var unsignedBytes = $('#nxter-unsigned-bytes').val().trim();
-  // secert
-  var secret = $('#nxter-sign-passphrase').val().trim();
+  window.print();
+});
 
-  if ( secret.length < 10 ) {
-    alert('Your passphrase is too weak! Please make sure that you’ve entered your passphrase correctly. If you did, it is better to create a new account with a stronger passphrase and transfer all your funds to it ASAP!');
+// ------------------------------------------------------------------------------
+
+// Token -> Help
+$('#nxter-token-help-sign').click(function(e) {
+  e.preventDefault();
+  if ( $('#nxter-token-help').hasClass('d-none') ) {
+    $('#nxter-token-help').removeClass('d-none');
+  } else {
+    $('#nxter-token-help').addClass('d-none');
   }
-
-  var signature = NRS.signBytes(unsignedBytes, converters.stringToHexString(secret));
-
-  var byteArray = converters.hexStringToByteArray(unsignedBytes);
-  var sigPos = 2 * 69; // 2 * (bytes before signature from TransactionImpl newTransactionBuilder())
-  var sigLen = 2 * 64;
-  var payload = unsignedBytes.substr(0, sigPos) + signature + unsignedBytes.substr(sigPos + sigLen);
-
-  $('#nxter-signed-bytes').val(payload);
-
-  console.log(payload);
 });
 
-
+// Token -> Generate
 $('#nxter-token-generate').click(function(e) {
   e.preventDefault();
   var site = $('#nxter-token-site').val().trim();
@@ -138,6 +115,7 @@ $('#nxter-token-generate').click(function(e) {
   $('#nxter-token-text').val(token);
 });
 
+// Token -> Clear
 $('#nxter-clear-token-section').click(function(e) {
   e.preventDefault();
   $('#nxter-token-site').val('');
@@ -145,6 +123,102 @@ $('#nxter-clear-token-section').click(function(e) {
   $('#nxter-token-text').val('');
 });
 
+// ------------------------------------------------------------------------------
+
+// QR -> Clear
+$('#nxter-clear-qr-section').click( function(e) {
+  e.preventDefault();
+  $('#nxter-qrcode').html('');
+  $('#nxter-text-for-qr-code').val('');
+  $('#nxter-qr-section').addClass('d-none');
+});
+
+// QR -> Generate
+$('#nxter-text-for-qr-code').keydown( function(e) {
+  var text4qr = $('#nxter-text-for-qr-code').val().trim();
+  $('#nxter-qr-qrcode').html('');
+  $('#nxter-qr-qrcode').qrcode({ width: 220, height: 220, text: text4qr });
+  $('#nxter-qr-section').removeClass('d-none');
+});
+
+
+$('#nxter-generate-qr-code').click( function(e) {
+  e.preventDefault();
+  var text4qr = $('#nxter-text-for-qr-code').val().trim();
+  $('#nxter-qr-qrcode').html('');
+  $('#nxter-qr-qrcode').qrcode({ width: 220, height: 220, text: text4qr });
+  $('#nxter-qr-section').removeClass('d-none');
+
+});
+
+// QR -> Print
+$('#nxter-print-qr-section').click(function(e) {
+  e.preventDefault();
+
+  var text4qr = $('#nxter-text-for-qr-code').val().trim();
+  $('#nxter-qr-print-qrcode').html('');
+  $('#nxter-qr-print-qrcode').qrcode({ width: 180, height: 180, text: text4qr });
+
+  // hide other printable fields
+  $('#nxter-section-print-new-section').removeClass('d-print-block') 
+  // show form for print
+  $('#nxter-section-print-qr-section').addClass('d-print-block');
+
+
+
+  window.print();
+});
+
+// QR -> Help
+$('#nxter-qr-help-sign').click(function(e) {
+  e.preventDefault();
+  if ( $('#nxter-qr-help').hasClass('d-none') ) {
+    $('#nxter-qr-help').removeClass('d-none');
+  } else {
+    $('#nxter-qr-help').addClass('d-none');
+  }
+});
+
+// ------------------------------------------------------------------------------
+
+// Offline -> Help
+$('#nxter-offline-help-sign').click(function(e) {
+  e.preventDefault();
+
+  if ( $('#nxter-offline-help').hasClass('d-none') ) {
+    $('#nxter-offline-help').removeClass('d-none');
+  } else {
+    $('#nxter-offline-help').addClass('d-none');
+  }
+
+});
+
+// OFFLINE -> Sign
+$('#nxter-sign-transaction').click( function(e) {
+  e.preventDefault();
+
+  // unsignedJSON
+  var unsignedBytes = $('#nxter-unsigned-bytes').val().trim();
+  // secert
+  var secret = $('#nxter-sign-passphrase').val().trim();
+
+  if ( secret.length < 10 ) {
+    alert('Your passphrase is too weak! Please make sure that you have entered your passphrase correctly. If you did, it is better to create a new account with a stronger passphrase and transfer all your funds to it!');
+  }
+
+  var signature = NRS.signBytes(unsignedBytes, converters.stringToHexString(secret));
+
+  var byteArray = converters.hexStringToByteArray(unsignedBytes);
+  var sigPos = 2 * 69; // 2 * (bytes before signature from TransactionImpl newTransactionBuilder())
+  var sigLen = 2 * 64;
+  var payload = unsignedBytes.substr(0, sigPos) + signature + unsignedBytes.substr(sigPos + sigLen);
+
+  $('#nxter-signed-bytes').val(payload);
+
+  //console.log(payload);
+});
+
+// OFFLINE -> Check
 $('#nxter-check-unsigned-tx').click(function(e) {
   e.preventDefault();
 
@@ -180,7 +254,7 @@ $('#nxter-check-unsigned-tx').click(function(e) {
     fee = nqt2chain(tx.chain, tx.feeNQT);
     show_review(6,'Fee', fee + " " + cchain);
 
-    console.log(tx);
+    //console.log(tx);
     
   } else {
     alert('The text you inserted is an already-signed transaction.');
@@ -188,13 +262,22 @@ $('#nxter-check-unsigned-tx').click(function(e) {
 
 });
 
-$('#nxter-clear-sign-section').click(function(e) {
+// OFFLINE -> clear
+$('#nxter-clear-sign-transaction').click(function(e) {
   e.preventDefault();
   show_review(1,'&nbsp;', '');show_review(2,'&nbsp; ', '');show_review(3,'&nbsp; ', '');show_review(4,'&nbsp; ', '');show_review(5,'&nbsp; ', '');show_review(6,'&nbsp; ', '');
   $('#nxter-signed-bytes').val('');
   $('#nxter-sign-passphrase').val('');
   $('#nxter-unsigned-bytes').val('');
 
+});
+
+// MENU -> Smooth scroll
+$('.nav-link').click( function(e) {
+  e.preventDefault();
+  url = $(this).data('url');
+  pos_y = $("[name = '" + url + "']").position().top;
+  $(window).scrollTop( pos_y - 120 );
 });
 
 //NRS.constants.GENESIS_BLOCK_ID = response.genesisBlockId;
@@ -232,4 +315,4 @@ NRS.constants.ACCOUNT_MASK_LEN = NRS.constants.ACCOUNT_MASK_PREFIX.length;
 NRS.constants.MAX_INT_JAVA = 2147483647; 
 
 
-console.log('Welcome to Nxter-Bridge Offline for Ardor');
+console.log('Welcome to SIGBRO OFFLINE for Ardor');

@@ -3,376 +3,416 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="css/sigbro.css" type="text/css" media="all">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SigBro OFFLINE</title>
+    <title>SIGBRO OFFLINE</title>
   </head>
 <body>
 	<style>
-    a.nav-link { 
-      color: #fff;
-    }
     
-    a.nav-link:hover {
-      color: #aaa;
-    }
-
-    .nxter-input-group-textarea {
-      height: 8rem;
-    }
-
-    .nxter-space {
-      height: 8rem;
-    }
-
-    .nxter-textarea { 
-      font-size: 75%;
-    }
-
-    .col-12 {
-      padding-bottom: 0.5rem;
-    }
-
-    .jimbotron {
-      margin-top: 3rem;
-    }
-
-    .card {
-      min-height: 350px;
-    }
-
 	</style>
 
 	<header class='d-print-none'>
-		<div class="navbar navbar-dark bg-dark box-shadow fixed-top">
-			<div class="container d-flex justify-content-between">
-				<a href="#" class="navbar-brand d-flex align-items-center">
-					<strong>SigBro OFFLINE</strong>
-				</a>
-				<nav class="nav nav-masthead justify-content-center">
-					<a class="nav-link" href="#New">New</a>
-					<a class="nav-link" href="#Sign">Sign</a>
-					<a class="nav-link" href="#Token">Token</a>
-					<a class="nav-link" href="#QR">QR</a>
-					<a class="nav-link" href="#About">About</a>
-				</nav>
-			</div>
-		</div>
+		<nav class="navbar navbar-expand-md navbar-dark bg-black box-shadow fixed-top container">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <img style="width: 300px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWUAAAB0CAYAAABdeCMxAAAACXBIWXMAAAsSAAALEgHS3X78AAAT0ElEQVR42u2dP2/kSHrGn5EFA47UmQMH6oEjAwdIGzm4M9TzCdR72UXqwR0MZ9P7BVYcw7l64eywh+FEDqeF+wBLAefkkm1FBxxwGCpwusdObgHDBh2waFHVxWKRrCKr2M8DMGg2ySLrz69evqx661We56AmozmAlNngJF/nld8ZgB3vb/KaAbiU9u1E/jrT6ZFlcAJgAyCe4PNdiufbAlixPfWuKysASwBXmuMeRZ7HLSEYSb/jlp3pXNyb6f1tOnTWUY/8y0S6bfJkIbauSiwBsyz3BYCzmmP2lbZmnyV5nh/DNsvzfJc/azWx57vM8zyrPF98JOXqYoukvDRVkuf53DANWYsW9TjOuykW56PjPXZRmuf5ukW+21Db5yy3pbjfLs+4tFkHT47IQr6o7PswIWuytJCrvfrNRN8GXNeTHYBbjYWk05U4/9JhOaeibLvoRpx/OWCengO4E/VzNlCaXZ4zBvBJ3G+XZ/xks72dHkFDk4FcBTMCh5cKyNXKCboyjLWtqSelGyATjX0u6pXq2DNRHgvLPl1dOVfvLxP3NvT9mXRYmwHrYpvnjDUd3V5yiZQ+ZqftbcpQ1gF5CmBuaqgEczs/4pWiQW7EltXUr7XYziQgbHr6R+V0topy3gu/b9zh/rai/rTxv35lCPJ5TX6Wb2+JYXqP4t5NtBRpys8ZN1jMUQ2Q78V/O03biwBcK55xJ8qfPuUGH3KTVoH7kE38bPQX12+yLzETeWxy7rymri0s+ZRVvtZdC79pXVuIHPm9y23dsh5GCh+9jTa/1Byf9WTBSnF+1tGnPWmfsomFrLKYQ7EmTSxk1FgplNqyO1dYXqav96k4fq+wvm1Z8bIFuWhh5Wbi+Cdp/9pxvm4APEj7Fg7Ty2rKYanJV7kNvW3ZTmJxjuw66VX2U4NyHZD3Db9DAXMdkB+l30+KZySY66Es142k5TVSRd7aANBC0WGs0X7YV6ao22eOIQnFa/y54/RS4ZqR24xJZ/fQsX3Eis6HUG4A8qMikzYAPgYG5jogf1RYPalocARze3X9ALZ1AKCForNNOl4rUVjLrkdipCOUn1wOdW/MFw0dSJ/O56LPA0wFyjog173qrQICsw7IKw1cCOb2uuoBvSaodqnXTWn0gaTrYWpjQDkzbE+wmLeJYRpGmsLoiy5All8zbhRghifw6gJkGczy+RyVoW/E646W00MHQLSBR1/IxQND89JjZsBiWWWGaRwFlPsAOQQw9wEywWyeP0+Su+Gu4yvtwvNnjQeuz4uGTmso4AalkN0XNoDssyvDBpDpyjCTCr53It/4NtG9fa4bLPUhOoInQjk8IPsIZptAJpjNoKwq+wtR/qk4Zk7WGoNRrr+PA9SzmaJ9JKFlXojuCxdA9smV4QLIdGWYlX0G4J3iv3Ox/10FLjEch3D0sOMyed45DkeePA1Qt2aiTOR2syWUwwWyD2B2CWSCuVlr0Yg30A+luhPbvTg2OYK86TrM6wHFBA5XHdhc1OdI0Rk8hgjlkNwXQwB5TFfGEECmK6NZiSiLNwK6Ol0D+A7Ps/p8uf/ccIsGuJ+rSp62Pc/kGT6LdikDeR+qgREKlIcE8hhgHhLIBLM53JYAXqMIxvOoObYM35iAfuc6K/v7ASG5x/CR8I4KymMAeUgwjwFkgtlcqXBRXAL4AsA3UE/TL607lzGVx9QbAK8Mt9cA3ivyaYiPpR9FGsEuh+W7T3lMIFfBXIJKBjN6wmtMIMtglu+DPmZ1XpXhMFdQ+zHPKq/r6Qj3GKPex71A9xmLbTuyCIU/t1qvzsR+kzq1bwDrXJH3bzEBY8JnKPsAZJdg9gHIBHM/+MUibzY4jOUbjZRvuroYDQTlar3aoFjNpdSyZZ3UQfmz4vmCh7Kv7gufgOzCleETkI/ZlTHD84Kdi45uh1iTbzNQseJNwoYLI0XhSqrqHO5Dkh4llH0Esk0w+wjkYwXzJYrRE+UW98i3dc31j11pjZVrQ5Girkahd4a+QdlnINsAs89APmaLuVSfkIuqvFn0vJ/E8vWmpgyHw/rODKxl2x3F3DCN4KAcApD7gDkEIB8bmFUNZ2kZGjbv76qnFbjC9LTBYXyL2wbIpjBfocRE8rn7KUA5JCB3AXNIQD4mMKewt0zSsiYPbVrKfe4vgvuVP0zzJbWcxroG1m3ydt2xw1MFXkpCd1+ECOQ2YA4RyMcE5lhhjUaWwNAXyikOw13ednBjrPByBMSQWtu0Imu0VeTTdUM+qVaK6RJDe6Po7HpN7R4byucBA9kEzF8HDORjAfNG8Wy34tlMLKcyEI481OzeUv2NaoCybnH+h5GMLVW+uIpFERnuq3bGT4o6vW1R7lscDpN96tsuXuV5PlZj+CcUX7z/SvHfo2UgzyTwPznorduM/3xw0AAuJGvE9oymec3rb0gdjK5jVYFrj+fJGIlUJxdiW9XkyxeaMpAb3ZuGV96tsPxU7WQj0qmmdSnubS3dW9n5lEbCew24ckU5m7aZMn3Viuuva64TSdb8Q4c3glgBSd2EkoVgUF25b6VymYlnW0K9GnZTuXsNZR2QqfA0BTBHFl/xm2aWtYVynYuvy30tKuBqA2Ub+krjIrAB5TkOJ5Q8Qf/Rb2XxTcLKjMIx3BcE8vR0MxEov0V9XAsT7eFmqm8mAHXf4xpvoZ+C7Vpv0W/FaBOloqOpqmlCSQzgSwvl/qWtch8aypcAfksgT9JSjifwHLGoox87NNKP4lxX+ZCJ1+Yv0W6JowfxSh1XXCFD6Unky+sB64fqG0GTj3grrOm25b7HcwAka/k6pPuibhSCrP8A8GsHad85hsjfies2dTi/AfAry2kv8NI31uXVr2v5TcF1UecyWODl9OurSv4Cz77cLdp9A5HLZof231BK3+Ylnn2dZ5V7S8R97TTpp6j3E/etP22faS65GTJ0983K19I9Z9dyT3D4nSEoKJsCudQtgH91CC2dL62LzgH8AcDfGB5vG8yuoXxsQKao0TSE+6ItkEtofh1IHrYFMgD8EsC3gTwfgUxRE4JyXYOW/TY/BArmOiD/r/T7x0DBTCBT1ISgrGvQ8lfYfwfwn4GBuQ7IP+JwrOTvUbgsQgIzgUxRE4Jylwb9s4DArAPyPwD4L8U5vwoIzAQyRU0Iyn0adAhgbgKybrhSCGAmkClqQlC20aB9BnMfIIcAZgKZoiYEZZsN2kcw2wCyz2AmkClqQlB20aB9ArNNIPsIZgKZoiYEZZcN2gcwuwCyT2AmkCnKI50G0KB/BuB3AH6qADNgd+bfkECugrkEsQzm6v8E8nCaoZjCvBB5pIrO9oDnKdZJh+vbXFRVNSV5DnsLlALqqcrlFG/dMX0kP4Nu6rWcp32maQOHM2KTFsf2U57nXbfLPM+z/FCxwbmRdE5kcM7vcrW+Njh30SG98zzP/6JI7y/ivzbpJQbpfVvzfN92eL7EcflNdZvleb6pyRed0jzPVy3SWeR2lRi0sb5StZmkQ7tqs0Ut6rWcp1me5/Meactqc2wvnQRkYQ3pyhjCQh7TlUELWZ0nKYB3aBcSoKwvH2C+agXlXmdwHyrUG5/ymA16CDCPAeQhwUwgm+dJVY/CZaEr/2txHYLZD13D7urkXvqUfWjQLn3MYwJ5CB8zgaz2RarypFwSKFb4JsvwjmscLgN2ISy0Nvn5iO6rVJf+U9dppIGWbyz80kOu9/lVH3/2aaAN2gWYfQCySzATyGptFHnStHBvJlwVW2GJxdI1ykVlkxZQTRw/5xBp+OrGiAe2mHd98vok4AZt05XhE5BduDIIZLXmOAwe1XYl9S3UX9/XoHxyYyxCudmTwBu0DTD7CGSbYCaQ67Ws2df2VXeHw7XhrkHfsm9ujCDK42QCDboPmH0Gsg0wE8h6ydbTPbr7TuOa/KfG0V7R1qPQoRxSg+4C5hCA3AfMBHKzZMsp6XGtVLg+dNCnhtMOwDfSvnchlMnJhBq0Dsz/LO3724CAbALmf5P2zQlkI10pGnIfZcxSrxQp2rL3Y5dPJmZh1YH5F9LvfwkMyE1g/qniLYBAHl4Js8ArZYo6f+G7G+Nkgq+8dWDWKQQgN4FZJwKZOuaO8l7adwuP/f2nBkCuvg7b0lz6vYJdX8//APhvAH9tePyfBLhsaVbT2dnUjzBbQZtApo5dKxQ+/yrbYl/BfGoAZODQ92Zb52IbSz9xfP2zAfKQQA5Xs45GSQrz0SJDpOGrSjfGp8q+CxRjyV34mLsYmanoKHCK+o9CVNj6jkAORheivNrqPcz9o0Ok4bO2KNwY15V9kdhvu9O56XDOQwnlE3FDW7aLSekHAD9nNlDUC63xcvxyOQXbK51WzO06wvcKrqEx72+k12zbmXMJ4M7wFd912n2DwdS9jsaKN5wfAPw9ODyLolQugkhqm1dw58boBWUdmCMU/hGbYF4oMiuxDEXVK9dnAK8VrxqJ4x7TdjCYushmfwTwjwRycHrqWP8Sz9IIQRsUU+mvJMbFFttNF0M2U0G5DsxnomBsg9mVmob1rVAEJK+q/B0H8HwlkOUlitoG0qH8s+BCTyMUrQTLziQ3hq1IctajxK1wODysBLPvc/lNxlnHAN4qzv0A/z+MEcgUZaeDkt0V3gTEP9H0JKGBuc3ElxDBTCBTlD1FOIxVEsODSHInDSZ+KGDuMhMxJDATyGFowSwIzo0h8y3yGcqhgLnP1PAQwEwgu9ODoi71LSsqHKniYI8eSc4kyL3PYLYRq8NnMBPIbpVZtHRninJKmMXea4PDmDex71D2Fcw2gyf5CGYC2b1kaF7jMC6LqdY1lhjlf8cst/ExQz4YQ9k3MLuIZucTmAnkYbQ13GdSH2+lffcsp6A65298uZmTlsf7AGaX4UV9ADOBPJxSRX2+EGA29Q8vatwUG2ZvUIrgSeje0w7nlHAaY4LJEPGe4wqIZTBX/yeQp9MYl1KdusbzWNYY6oA1S7GpQhPc4zj9yXP088tnGM/lk6FwQX2yxKlBoTwWmIcMwD8GmAnk8azlJQ4jqJ0Jl8QtiiA2u0o5XWiu94jjjc53g24R0ko9YNyRD6pIcl101+fkkx7nDunKGGNFlCFdGQTyuEoAvMHhCsjVen0ltgsDqLC8wtVKUw8G0YmFB3AN5jGXqBoCzASyP2Ceo9sKNE+inrC8wlc29pvOqYVruHRl+LBmoEtXBoHsZ4OMhEtjIergeY2bYideeduO2EjxctJC6qiTgeM0Ytj1nac9nsFmnm5RRHoz/dj73mamvsrz3GYByf6kfQ2YI7wcQqRa3cC3RVxXCjBDWEgymBd46aNU+coIZIqirLsvXLkyfFxV26Yrg0CmKMo5lG2B2Ucg2wQzgUxR1GBQ7gtmn4FsA8wEMkVRWp06um4Jp7qPf6ECuQrmEsQymAH1RwYCmaKoUSzlLhZzSEDuYjETyBRFGcnm6AsdvLrM8vEZyHLn86HDeQQyRVGDWso6i3kqQNZZzAQyRVFeQrktmEMCchcwE8gURY0OZVMwhwjkNmAmkCmK8gbKTWAOGcgmYCaQKYryDsp1YJ4CkHVgJpApijLS6UjplgC+mRiQq2AGilEZBDJlW3PUryWYMHvC1hBD4prgHE84f5eikRDIlE1FOFwT8P/bNLOHlrINi3Kq2rKKURTVRifMAoqiKFrKFBWaFtLvHabjlprhMPSBrUVM53jp/55SvtFSpihHsM0r2w7PK07MUbjYMhSLFlS3P4v/5jXXjaTrllusAWOmOD5R3Oet5nnk8yNNehGK4Fl/Vjzf9+J+dM8IxT2XnVcZz+azdN1LVjlCmaLa6EKAaCUAfYPDQFmlbsQxbUBzg+IDsKxYk45trQWMb6Fe6qrUmbjfzxq4y/e8FXn3PYqFZilCmaJ66xrFcEYTSJaRD+ctrh/j5fpva/Rf1t5UGwB3HTqAW3GuSX58YBUilClqTJ0pLMldw/Hbymt+pDl2Z/E+lwDe9Tj/HerjoVOEMkV5pRvJ+t0CuNccfyUs5FhjtT42ALuLldxXEYvarTj6gqKa9Sggu8ThQgVVlR+3Sq2EpVvnt71rSHeF55EKGYpV0YHCVVJ3zQfpd2pwDlDMrK0ee6PpTNrqqXJtjrwglCmqs54EGJOKlRhrgLWQoJyJ87/rkPZ7vHRd7Cqugwj1IzDq3AvzhrSiGuvf5DlV2lfyiyBuIbovKEpvqSY9X98TAN+0POdhYDeBCrBxz2vGKNwlBDItZYpyqrTDOWthXV4YHLvH8AG6VPCc9bwmYUwoU1QQVnfTULR1R/D30QWLxx/RfUFRw2iHZpfEE6YfpIsilCnKK2tZp3OoZ/tRhDJFUZYVwcxNEKPd7ECKUKYoqqUW0AcRquoMzS6MVPNfl4A/b1AExzfdEhapO/FDH0W51Qzt/cTlbL9NByhHaO8CmdXsqwM8w28SyhQVrGLoZ9LV6U5YpLuWUL5GMfswFuBM0TyaIxLHlhbwXFyjzt3yBezG5KAqovuCotxpBX30t6ZJJbHGUn5qAPMnFDMJVxXrtk4X4tgyJvJnDZD3BDKhTFEhag59AKAHFC6K9w2w3LQEdp0yFPEt+orrThLKFBWslXymsTZXFdfBg+Y6daE2Nw3WskqRSLur9qIjoQhlipocsFPpd1tYZig+6LU5L0UxEqQLmPfiXH7gI5QpalK6V7gAUnSLd1EuRfXR8TkPAsj0JQ+gV3meMxeoY9ZcA8QY6pELUc3xCV4udLpQHKOLnLaGenhaZPAc5RC2S+ka1XtSPftSbDM8f9wrP+btRAeSaNI1yQuqhf4P2dnp+OAVwkYAAAAASUVORK5CYII=" />
+      </a>
+      <button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#sigbro" aria-controls="sigbro" aria-expanded="false" >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-right" id="sigbro">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"> <a class="nav-link" href="#" data-url='Account'>Account</a> </li> 
+          <li class="nav-item"> <a class="nav-link" href="#" data-url='Token'>Create Token</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-url='QR'>Create QR</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#" data-url='Sign'>Sign OFFLINE</a> </li>
+        </ul>
+      </div> <!-- /collapse -->
+		</nav>
   </header>
 
   <main role="main">
-
     <!-- ************************************************* -->
     <div class="nxter-space d-print-none"></div>
-    <a name="new"> </a>
+    <a name="Account"> </a>
     <!-- ************************************************* -->
-    <div class="jumbotron d-print-none">
-      <div class="container">
-        <h1 class="display-3">New Account</h1>
-        <p>1. "Random" button generates a random Ardor passphrase and account address.<br>
-        This passphrase gives access to an account on the ARDR chain and any child chain.<br>
-        2. "Generate QR" generates QR codes for your public account address and your secret passphrase. NEVER disclose your secret passphrase or secret passphrase QR to anyone!<br>
-        3. The "Print" button generates a <strong>PAPERWALLET</strong>.</p>
-        <p>Print it, store it in a safe place or use it to set up our SigBro mobile app.</p>
-        <p><i>If you already have an Ardor account and passphrase, you can paste your passphrase into the first field and tap "Generate". Follow step 2 and 3 to print a paperwallet for your account.</i></p>
-      </div>
-    </div>
+    <section class="d-print-none">
+      <div class="container nxter-section">
+        <h1 class="display-3">Account</h1>
 
-    <div class="container">
-      <div class="row d-print-none"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Your passphrase: </span>
+        <div class="row d-print-none"><div class="col-12">
+          <div class="btn-group" role="group" aria-label="button group for generate QR code">
+            <button class="btn btn-outline-secondary" type="button" id="nxter-random-passphrase">Create New</button>
+            <button class="btn btn-outline-secondary" type="button" id="nxter-generate-account">I have an account</button>
           </div>
-          <input class="form-control" type="text" id="nxter-new-passphrase">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary d-print-none" type="button" id="nxter-random-passphrase">Random</button>
-            <button class="btn btn-outline-primary d-print-none" type="button" id="nxter-generate-account">Generate</button>
-          </div>
-        </div>
-      </div></div>
-      <div class="row d-print-none"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Your account: </span>
-          </div>
-          <input class="form-control" type="text" id="nxter-new-account" readonly>
-        </div>
-      </div></div>
-      <div class="row d-print-none"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Your public key: </span>
-          </div>
-          <input class="form-control" type="text" id="nxter-new-publickey" readonly>
-        </div>
-      </div></div>
+        </div></div>
 
-      <div class="row"><div class="col-12">
-        <div class="btn-group" role="group" aria-label="button group for generate QR code">
-          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-new-section">Clear section data</button>
-          <button type="button" class="btn btn-success d-print-none" id="nxter-generate-qr-code-new-section">Generate QR code</button>
-          <button type="button" class="btn btn-danger d-print-none" id="nxter-print-new-section">Print</button>
-        </div>
-      </div></div>
+        <div class="row"><div class="col-12 d-none" id="nxter-generate-own-account-tip">
+          <p style="margin-top: 10px;">
+            Enter your secret passphrase.<br>
+            <strong>ALWAYS</strong> use a passphrase with at least 30 random characters, or a string of random words at least 30 characters in length.
+          </p>
+        </div></div>
 
-      <div class="row d-print-none">
-        <div class="col-6">
-          <div id="nxter-new-pass-qrcode"> </div>
-        </div>
-        <div class="col-6">
-          <div id="nxter-new-account-qrcode"> </div>
-        </div>
-      </div>
-
-      <div class="row" id='print-new-section'>
-        <div class="col-6 d-none d-print-block">
-          <div class="card">
-            <div class="card-header"><strong id="nxter-new-account-print-1" class="text-center">ARDOR-...</strong></div>
-            <div class="card-body text-center" id="nxter-new-account-qrcode-print"></div>
-          </div>
-        </div>
-       <div class="col-6 d-none d-print-block">
-          <div class="card">
-            <div class="card-header"><strong id="nxter-new-account-print-2" >PRIVATE SECTION</strong></div>
-            <div class="card-body">
-              <p><strong>Public Key:</strong></p>
-              <p id="nxter-new-account-public-key-print"></p>
-              <p><strong>SECRET Passphrase:</strong></p>
-              <p id="nxter-new-account-passphrase-print"></p>
+        <div class="row d-print-none"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your passphrase: </span>
             </div>
+            <input class="form-control" type="text" id="nxter-new-passphrase">
           </div>
-        </div>
-
-        <div class="d-none nxter-space d-print-block" > </div>
-
-        <div class="col-6 d-none d-print-block">
-          <div class="card">
-            <div class="card-header"><strong>Made by 'NXTER.ORG'</strong></div>
-            <div class="card-body">
-              <p>Print it, cut in the middle, stick the account QR part in your pocket and hide the other part at home.</p>
+        </div></div>
+        <div class="row d-print-none"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your account: </span>
             </div>
+            <input class="form-control" type="text" id="nxter-new-account" readonly>
           </div>
-        </div>
-        <div class="col-6 d-none d-print-block">
-          <div class="card">
-            <div class="card-header"><strong id="nxter-new-account-print" class="text-center">SECRET Passphrase</strong></div>
-            <div class="card-body text-center" id="nxter-new-passphrase-qrcode-print"></div>
+        </div></div>
+        <div class="row d-print-none"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your public key: </span>
+            </div>
+            <input class="form-control" type="text" id="nxter-new-publickey" readonly>
           </div>
-        </div>
- 
-      </div>
+        </div></div>
 
-    </div> <!-- /container -->
+        <div class="row"><div class="col-12" style="text-align: right;">
+          <div class="btn-group" role="group" aria-label="button group for generate QR code">
+            <button type="button" class="btn btn-outline-secondary" id="nxter-clear-new-section">Clear</button>
+            <button type="button" class="btn btn-outline-secondary" id="nxter-print-new-section">PRINT</button>
+          </div>
+        </div></div>
+
+        
+      </div> <!-- /container -->
+    </section>
+
+    <section class="d-print-none d-none" id="nxter-new-section">
+      <div class="container nxter-section">
+        
+        <div class="row">
+          <div class="col-6"><div class="card" style="border-color: white; ">
+            <div class="card-header text-center" style="border-color: white; background-color: white; ">PUBLIC</div>
+            <div class="card-body text-center" id="nxter-new-account-qrcode"></div>
+            <div class="card-footer text-center" style="border-color: white; background-color: white; ">Your public account<br>You can give this to others.</div>
+          </div></div>
+
+          <div class="col-6"><div class="card" style="border-color: white; ">
+            <div class="card-header text-center" style="border-color: white; background-color: white; ">SECRET</div>
+            <div class="card-body text-center" id="nxter-new-pass-qrcode"></div>
+            <div class="card-footer text-center" style="border-color: white; background-color: white; ">KEEP SECRET!<br>Scan with SIGBRO MOBILE</div>
+          </div></div>
+        </div>
+
+        <br>
+
+        <div class="row d-print-none"><div class="col-12">
+          <p style="text-align: center;">
+          New accounts must announce their existence to the network.<br> Either send an outgoing transaction OR have someone include your public key in a transaction.
+          </p>
+          <p style="text-align: center;">
+            We highly recommend that you print this paperwallet. Store it in a safe place. If you lose your passphrase you can <strong>NOT</strong> recover it.
+          </p>
+        </div></div>
+
+
+      </div> <!-- /container -->
+    </section>
+
+    <section class="d-none" id="nxter-section-print-new-section">
+      <div class="container-fluid nxter-section">
+        <div class="row">
+
+          <div class="col-4"><div class="card">
+            <div class="card-header text-center"><strong id="nxter-new-print-account">ARDOR-...</strong></div>
+            <div class="card-body text-center" id="nxter-new-print-account-qrcode"></div>
+          </div></div>
+
+          <div class="col-4"><div class="card">
+            <div class="card-header text-center"><strong class="text-center">SECRET passphrase</strong></div>
+            <div class="card-body text-center" id="nxter-new-print-account-passphrase-qrcode"></div>
+          </div></div>
+
+        </div> <!-- /row -->
+
+        <div class="row">
+
+          <div class="col-4"><div class="card">
+            <div class="card-header text-center"><strong>Public section</strong></div>
+            <div class="card-body">
+              Your public account<br>You can give this to others<br><br>
+              <p><strong>Public key:</strong></p>
+              <p id="nxter-new-print-account-public-key"></p>
+            </div>
+          </div></div>
+
+          <div class="col-4"><div class="card">
+            <div class="card-header text-center"><strong>Private section</strong></div>
+            <div class="card-body">
+              KEEP SECRET!<br>Scan with SIGBRO MOBILE<br><br>Store your passphrase in a safe place - make sure you NEVER lose it!
+              <p style="margin-top: 10px;"><strong>SECRET passphrase:</strong></p>
+              <p id="nxter-new-print-account-passphrase"></p>
+            </div>
+          </div></div>
+
+        </div> <!-- /row -->
+      </div> <!-- /container -->
+    </section>
 
     <!-- ************************************************* -->
-    <div class="nxter-space d-print-none"></div>
-    <a name="Sign"> </a>
-    <!-- ************************************************* -->
-    <div class="jumbotron d-print-none">
-      <div class="container">
-        <h1 class="display-3">Sign transaction</h1>
-        <p>Sign Ardor transactions <strong>OFFLINE</strong>. <sup>*</sup>) <sup>**</sup>)</p> 
-        <p>1. Initiate a transaction with an online Ardor Client or at Nxter.org<br>
-        2. Copy and paste the <strong>unsigned transaction bytes</strong> into the form field below<br>
-        3. Enter your secret passphrase in an offline environment<br>
-        4. Press "Check" to see transaction details<br>
-        5. Press "Sign" to sign the transaction and generate signed transaction bytes<br>
-        6. Copy and paste your signed transaction bytes into an online client or broadcasting service..<br>
-        7. Copy and paste your signed transaction bytes into an online client or broadcasting service.</p>
-        <p><sup>*</sup>) SigBro OFFLINE works with ARDR and all Ardor child chains.<br>
-        <sup>**</sup>) SigBro OFFLINE does not support transactions with prunable messages. For this, we recommend you to use the SigBro mobile signing app. </p>
-      </div>
-    </div>
-
-    <div class="container d-print-none">
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text nxter-input-group-textarea">Unsigned Transaction Bytes: </span>
-          </div>
-          <textarea class="form-control nxter-textarea" id="nxter-unsigned-bytes"></textarea>
-        </div>
-      </div></div>
-
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Your passphrase: </span>
-          </div>
-          <input class="form-control" type="password" id="nxter-sign-passphrase">
-        </div>
-      </div></div>
-
-      <div class="row"><div class="col-12">
-        <div class="btn-group" role="group" aria-label="button group for generate QR code">
-          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-sign-section">Clear section data</button>
-          <button type="button" class="btn btn-success d-print-none" id="nxter-check-unsigned-tx">Check</button>
-          <button type="button" class="btn btn-danger d-print-none" id="nxter-sign-transaction">SIGN</button>
-        </div>
-      </div></div>
-
-      <hr>
-
-      <div class="row">
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_1">&nbsp;</span></div><input class="form-control" type="text" id="review_val1" readonly>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_2">&nbsp;</span></div><input class="form-control" type="text" id="review_val2" readonly>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_3">&nbsp;</span></div><input class="form-control" type="text" id="review_val3" readonly>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_4">&nbsp;</span></div><input class="form-control" type="text" id="review_val4" readonly>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_5">&nbsp;</span></div><input class="form-control" type="text" id="review_val5" readonly>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div class="input-group">
-            <div class="input-group-prepend"><span class="input-group-text" id="review_6">&nbsp;</span></div><input class="form-control" type="text" id="review_val6" readonly>
-          </div>
-        </div>
-
-      </div>
-
-      <hr>
-
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text nxter-input-group-textarea">Signed Transaction Bytes: </span>
-          </div>
-          <textarea class="form-control nxter-textarea" id="nxter-signed-bytes" readonly></textarea>
-        </div>
-      </div></div>
-
-    </div> <!-- /container -->
-
-
-    <!-- ************************************************* -->
-    <div class="nxter-space d-print-none"></div>
+    <hr class='nxter-hr' class="d-print-none" />
     <a name="Token"> </a>
     <!-- ************************************************* -->
-    <div class="jumbotron d-print-none">
-      <div class="container">
-        <h1 class="display-3">Token</h1>
-        <p>Sign to prove ownership of your account.</p> 
-        <p>1. Write any text data in the form field<br>
-        2. Enter your passphrase and press "Generate" to generate a token.<br>
-        3. Copy the token and paste it anywhere to prove that you own the account (passphrase).<br>
-        <p>The token will be different next time you press "Generate" - this is normal, don't worry.<br>
-        <strong>This is an absolutely safe way to auth</strong> - no one can decrypt your passphrase from the token.</p>
-      </div>
-    </div>
+    <section class="d-print-none">
+      <div class="container nxter-section">
+        <h1 class="display-3">Create Token
+        <a href="#" id="nxter-token-help-sign"><span class="badge badge-dark sigbro-help-sign">?</span></a>
+        </h1>
 
-    <div class="container d-print-none">
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Specific key for token: </span>
+        <div class="row d-none" id="nxter-token-help"><div class="col-12">
+          <p>
+          <strong>Tokens can be used to prove ownership of Ardor and Ardor child chain accounts</strong><br>
+          1. Enter your passphrase<br>
+          2. Enter the text you want to sign<br>
+          3. Click ‘SIGN’<br>
+          4. Copy the token and paste it anywhere to display confirmed ownership of your accounts
+          <br><br>
+          <i>A new token is generated every time you click SIGN. All generated tokens are valid. <br>Tokens can be validated using any node, like nxt.nxter.org or ardor.nxter.org. No one can decrypt your passphrase from the token.</i>
+
+          </p>
+        </div></div>
+
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your passphrase: </span>
+            </div>
+            <input class="form-control" type="text" id="nxter-token-passphrase">
           </div>
-          <input class="form-control" type="text" id="nxter-token-site">
-        </div>
-      </div></div>
+        </div></div>
 
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Your passphrase: </span>
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Specific key for token: </span>
+            </div>
+            <input class="form-control" type="text" id="nxter-token-site">
           </div>
-          <input class="form-control" type="text" id="nxter-token-passphrase">
-        </div>
-      </div></div>
+        </div></div>
 
-      <div class="row"><div class="col-12">
-        <div class="btn-group" role="group" aria-label="button group for generate QR code">
-          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-token-section">Clear section data</button>
-          <button type="button" class="btn btn-danger d-print-none" id="nxter-token-generate">SIGN</button>
-        </div>
-      </div></div>
-
-
-      <div class="row"><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text nxter-input-group-textarea">Your token: </span>
+        <div class="row"><div class="col-12" style="text-align: right;">
+          <div class="btn-group" role="group" aria-label="button group for generate token">
+            <button type="button" class="btn btn-outline-secondary" id="nxter-clear-token-section">Clear</button>
+            <button type="button" class="btn btn-outline-secondary" id="nxter-token-generate">SIGN</button>
           </div>
-          <textarea class="form-control nxter-textarea" aria-label="Your token" id="nxter-token-text" readonly></textarea>
-        </div>
-      </div></div>
+        </div></div>
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text nxter-input-group-textarea">Your token: </span>
+            </div>
+            <textarea class="form-control nxter-textarea" aria-label="Your token" id="nxter-token-text" readonly></textarea>
+          </div>
+        </div></div>
 
 
-    </div> <!-- /container -->
-
+      </div> <!-- /container -->
+    </section>
 
     <!-- ************************************************* -->
-    <div class="nxter-space d-print-none"></div>
+    <hr class='nxter-hr' class="d-print-none" />
     <a name="QR"> </a>
     <!-- ************************************************* -->
-    <div class="jumbotron d-print-none">
-      <div class="container">
-        <h1 class="display-3">QR Code</h1>
-        <p>Enter any NXT / Ardor / clone public account here and generate a QR code.<br></p> 
-      </div>
-    </div>
+    <section class="d-print-none">
+      <div class="container nxter-section">
+        <h1 class="display-3">Create QR
+        <a href="#" id="nxter-qr-help-sign"><span class="badge badge-dark sigbro-help-sign">?</span></a>
+        </h1>
+        <div class="row d-none" id="nxter-qr-help"><div class="col-12">
+          <p>
+          Use this to generate a QR code for any account. 
+          </p>
+        </div></div>
 
-    <div class="container">
-      <div class="row d-print-none"  id='print-qr-section'><div class="col-12">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text nxter-input-group-textarea">Paste your text: </span>
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text nxter-input-group-textarea">Paste account address:</span>
+            </div>
+            <textarea class="form-control nxter-textarea" aria-label="Paste your text" id="nxter-text-for-qr-code"></textarea>
           </div>
-          <textarea class="form-control nxter-textarea" aria-label="Paste your text" id="nxter-text-for-qr-code"></textarea>
-        </div>
-      </div></div>
+        </div></div>
 
-      <div class="row d-print-none"><div class="col-12">
-        <div class="btn-group" role="group" aria-label="button group for generate QR code">
-          <button type="button" class="btn btn-info d-print-none" id="nxter-clear-qr-section">Clear section data</button>
-          <button type="button" class="btn btn-success d-print-none" id="nxter-generate-qr-code">Generate QR code</button>
-          <button type="button" class="btn btn-danger d-print-none" id="nxter-print-qr-section">Print</button>
-        </div>
-      </div></div>
-      <div class="row" id='print-qr-section'>
-        <div class="col-12">
-          <div id="nxter-qrcode"> </div>
-        </div>
-      </div>
+        <div class="row"><div class="col-12" style="text-align: right;">
+          <div class="btn-group" role="group" aria-label="button group for generate QR code">
+            <button type="button" class="btn btn-outline-secondary" id="nxter-clear-qr-section">Clear</button>
+            <button type="button" class="btn btn-outline-secondary" id="nxter-print-qr-section">PRINT</button>
+          </div>
+        </div></div>
 
-    </div> <!-- /container -->
+      </div> <!-- /container -->
+    </section>
 
+    <section class="d-none d-print-none" id="nxter-qr-section">
+      <div class="container nxter-section">
+
+        <div class="row">
+          <div class="col-12 col-sm-4" style="text-align: right;" id="nxter-qr-qrcode"> </div>
+          <div class="col-12 col-sm-4" style="text-align: center;" > 
+            &larr;&nbsp;Here is your QR code<br>
+          </div>
+        </div>
+
+      </div> <!-- /container -->
+    </section>
+
+    <section class="d-none" id="nxter-section-print-qr-section">
+      <div class="container-fluid nxter-section">
+        <div class="row">
+          <div class="col-6"><div class="card">
+            <div class="card-header"><strong id="nxter-new-print-account" class="text-center">Your QR code</strong></div>
+            <div class="card-body text-center" id="nxter-qr-print-qrcode"></div>
+          </div></div>
+        </div> <!-- /row -->
+      </div> <!-- /container -->
+    </section>
 
 
 
     <!-- ************************************************* -->
-    <div class="nxter-space d-print-none"></div>
-    <a name="About"> </a>
+    <hr class='nxter-hr' class="d-print-none" />
+    <a name="Sign"> </a>
     <!-- ************************************************* -->
-    <div class="jumbotron d-print-none">
-      <div class="container">
-        <h1 class="display-3 d-print-none">About NxterBridge Offline</h1>
-        <p>SigBro Offline: <a href='https://www.nxter.org/offline-about' target=_blank>https://nxter.org/offline</a> <br>
-        FAQ and Helpdesk: <a href='https://forum.nxter.org/c/offline' target=_blank>forum.nxter.org</a> <br>
-        </p> 
-        <p>By using this software you agree to the Terms and Conditions @ nxter.org/offline-tc</p>
-      </div>
+
+    <section class="d-print-none">
+      <div class="container nxter-section">
+        <h1 class="display-3">Sign OFFLINE
+        <a href="#" id="nxter-offline-help-sign"><span class="badge badge-dark sigbro-help-sign">?</span></a>
+        </h1>
+        <div class="row d-none" id="nxter-offline-help"><div class="col-12">
+          <p>
+          <strong>How to make transactions from cold storage (offline) accounts</strong><br>
+          1. Login and initiate a transaction on ardor.nxter.org<br>
+          2. Click ‘Advanced’ &rarr; ‘Do Not Broadcast’ &rarr; ‘Do Not Sign’ &rarr; ‘SUBMIT’<br>
+          3. Copy the ‘Unsigned Transaction Bytes’ into a text document, save on USB <br>
+          4. Open SIGBRO OFFLINE on an offline device, insert the USB key<br>
+          5. Enter your passphrase into the for field below.
+          6. Paste the Unsigned Transaction Bytes from USB into the form field above<br>
+          7. Click ‘CHECK’. You will now see your transaction details below the form field - verify them<br>
+          8. Once verified  &rarr; Click ’SIGN’<br>
+          9. Save your signed transaction bytes on the USB key<br>
+          10. On your ONLINE device, insert USB and get the `Signed Transaction Bytes’ <br>
+          11. Paste them into a broadcasting service like nxter.org/wallet and click ‘BROADCAST’
+          </p>
+        </div></div>
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Your passphrase: </span>
+            </div>
+            <input class="form-control" type="password" id="nxter-sign-passphrase">
+          </div>
+        </div></div>
+
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text nxter-input-group-textarea">Unsigned Transaction Bytes: </span>
+            </div>
+            <textarea class="form-control nxter-textarea" id="nxter-unsigned-bytes"></textarea>
+          </div>
+        </div></div>
+
+        <div class="row"><div class="col-12" style="text-align: right;">
+          <div class="btn-group" role="group" aria-label="button group for offline signing">
+            <button type="button" class="btn btn-outline-secondary" id="nxter-clear-sign-transaction">Clear</button>
+            <button type="button" class="btn btn-outline-secondary" id="nxter-check-unsigned-tx">Check</button>
+            <button type="button" class="btn btn-outline-secondary" id="nxter-sign-transaction">SIGN</button>
+          </div>
+        </div></div>
+
+        <hr />
+
+
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_1">&nbsp;</span></div><input class="form-control" type="text" id="review_val1" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_2">&nbsp;</span></div><input class="form-control" type="text" id="review_val2" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_3">&nbsp;</span></div><input class="form-control" type="text" id="review_val3" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_4">&nbsp;</span></div><input class="form-control" type="text" id="review_val4" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_5">&nbsp;</span></div><input class="form-control" type="text" id="review_val5" readonly>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <div class="input-group">
+              <div class="input-group-prepend"><span class="input-group-text" id="review_6">&nbsp;</span></div><input class="form-control" type="text" id="review_val6" readonly>
+            </div>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row"><div class="col-12">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text nxter-input-group-textarea">Signed Transaction Bytes: </span>
+            </div>
+            <textarea class="form-control nxter-textarea" id="nxter-signed-bytes" readonly></textarea>
+          </div>
+        </div></div>
+
+      </div> <!-- /container -->
+    </section>
+  </main>
+
+  <footer class='footer d-print-none'>
+    <div class="container">
+        <div class="row"><div class="col-12">
+          <a href="https://www.nxter.org/" target=_blank class="navbar-brand d-flex align-items-center">
+          <img src="data:image/png;base64,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"/>
+				</a>
+        </div></div>
+
+        <div class="row"><div class="col-12 sigbro-text-footer">
+            <a class="sigbro-href-footer" href="https://www.nxter.org/sigbro" target=_blank>Download SIGBRO Mobile</a>
+            <br>
+            Helpdesk: <a class="sigbro-href-footer" href="https://forum.nxter.org/" target=_blank>forum.nxter.org</a>
+            <br>
+            By using this software you agree to the Terms and Conditions @ <a href="https://www.nxter.org/terms-of-service/" class="sigbro-href-footer" target=_blank">nxter.org/terms-of-service</a>
+        </div></div>
+
     </div>
+  </footer>
+
 
   <script type="text/javascript">
     var isNode = false;
-    
   </script>
 
   <script src="js/3rdparty/jquery.js"></script>
@@ -387,14 +427,9 @@
   <script src="js/nrs.util.js"></script>
   <script src="js/nrs.encryption.js"></script>
   <script src="js/crypto/passphrasegenerator.js"></script>
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
   <script src="js/nxter-parse.js"></script>
   <script src="js/nxter-bridge.js"></script>
-  <!-- http://jeromeetienne.github.io/jquery-qrcode/ -->
-  <script type="text/javascript" src="js/3rdparty/jquery.qrcode.min.js"></script>
+  <script src="js/3rdparty/jquery.qrcode.min.js"></script>
 
 </body></html>
 

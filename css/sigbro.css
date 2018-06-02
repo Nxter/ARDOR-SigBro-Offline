@@ -1,0 +1,83 @@
+.bg-black {
+  background-color: #000 !important;
+}
+
+body {
+  background-color: #000;
+}
+
+a.nav-link { 
+  color: #fff;
+}
+
+a.nav-link:hover {
+  color: #aaa;
+}
+
+.nxter-input-group-textarea {
+  height: 8rem;
+}
+
+.nxter-space {
+  height: 7rem;
+}
+
+.nxter-textarea { 
+  font-size: 75%;
+}
+
+.col-12 {
+  padding-bottom: 0.5rem;
+}
+
+.sigbro-logo {
+  margin-left: 20px;
+}
+
+.nxter-section {
+  background-color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.nxter-hr {
+  padding: 0px;
+  margin: 0px;
+}
+
+.footer {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.sigbro-logo-footer {
+  margin-left: 20px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.sigbro-href-footer {
+  color: #fff;
+}
+
+.sigbro-href-footer:hover {
+  color: #fff;
+}
+
+.sigbro-text-footer {
+  color: #fff;
+}
+
+.sigbro-help-sign {
+  font-size: 20%;
+  position: relative;
+  top: -30px;
+  left: 0px;
+}
+
+.navbar-right {
+  position: absolute;
+  right: 0px;
+}
