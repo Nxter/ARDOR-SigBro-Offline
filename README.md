@@ -20,12 +20,10 @@ The safest way to store cryptocurrency is using a paper wallet, the safest way t
 You and you alone are responsible for keeping your passphrase and cryptocurrencies safe. If you ever lose your private key (passphrase), then you lose your funds, because you can not access them without your private key. SIGBRO keeps no backup.                                                                                            
                                                                                                                                                                         
 SIGBRO OFFLINE is open source software and part of the SIGBRO software bundle developed by [Nxter.org](https://www.nxter.org).                                                                   
-                                                                                                                                                                        
 ## SHA256                                                                                                                                                              
-                                                                                                                                                                        
-`2c28bdbae5ecf5b652add2686710096eff494f9427d7aeccafe47ae4b83c209c  ardor.html`                                                                                          
-                                                                                                                                                                        
+ - 2018-06-06. `10b9bf34ecbc69f7fe1a444c9168b8766c2f206c13a3b3846e9e1d18d654886  ardor.html`
+ - 2018-06-02. `2c28bdbae5ecf5b652add2686710096eff494f9427d7aeccafe47ae4b83c209c  ardor.html`                                                                                          
 ## Changelog                                                                                                                                                           
-                                                                                                                                                                        
+ - 2018-06-06. Add Show/Hide buttons. Fixed mistypes.
  - 2018-06-02. Rebranding  
  - 2018-03-07. Initial version

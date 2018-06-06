@@ -1,22 +1,15 @@
 // Wallet -> I have an account
 $('#nxter-generate-account').click( function(e) {
   e.preventDefault();
-  $('#nxter-generate-own-account-tip').removeClass('d-none');
-  var new_random_password = $('#nxter-new-passphrase').val().trim();
-  var publicKey =  NRS.getPublicKey(converters.stringToHexString(new_random_password)) ;
-  var accountId = NRS.getAccountIdFromPublicKey(publicKey, true);
-  $('#nxter-new-publickey').val(publicKey);
-  $('#nxter-new-account').val(accountId);
 
-  // generate qr
+  $('#nxter-new-passphrase').val('');
+  $('#nxter-new-account').val('');
+  $('#nxter-new-publickey').val('');
   $('#nxter-new-pass-qrcode').html('');
   $('#nxter-new-account-qrcode').html('');
+  $('#nxter-new-section').addClass('d-none');
 
-  $('#nxter-new-section').removeClass('d-none');
-
-  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
-  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
-  
+  $('#nxter-generate-own-account-tip').removeClass('d-none');
 });
 
 // Wallet -> create new
@@ -59,9 +52,27 @@ $('#nxter-clear-new-section').click( function(e) {
   $('#nxter-generate-own-account-tip').addClass('d-none');
 });
 
+function generate_account_and_qr() {
+  $('#nxter-generate-own-account-tip').removeClass('d-none');
+  var new_random_password = $('#nxter-new-passphrase').val().trim();
+  var publicKey =  NRS.getPublicKey(converters.stringToHexString(new_random_password)) ;
+  var accountId = NRS.getAccountIdFromPublicKey(publicKey, true);
+  $('#nxter-new-publickey').val(publicKey);
+  $('#nxter-new-account').val(accountId);
+
+  // generate qr
+  $('#nxter-new-pass-qrcode').html('');
+  $('#nxter-new-account-qrcode').html('');
+
+  $('#nxter-new-section').removeClass('d-none');
+
+  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
+  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
+}
+
 // Wallet -> Autogenerate
-$('#nxter-new-passphrase').keydown( function(e) {
-  $('#nxter-generate-account').click();
+$('#nxter-new-passphrase').keyup( function(e) {
+  generate_account_and_qr();
 });
 
 // Wallet -> Print
@@ -134,7 +145,7 @@ $('#nxter-clear-qr-section').click( function(e) {
 });
 
 // QR -> Generate
-$('#nxter-text-for-qr-code').keydown( function(e) {
+$('#nxter-text-for-qr-code').keyup( function(e) {
   var text4qr = $('#nxter-text-for-qr-code').val().trim();
   $('#nxter-qr-qrcode').html('');
   $('#nxter-qr-qrcode').qrcode({ width: 220, height: 220, text: text4qr });
@@ -278,6 +289,38 @@ $('.nav-link').click( function(e) {
   url = $(this).data('url');
   pos_y = $("[name = '" + url + "']").position().top;
   $(window).scrollTop( pos_y - 120 );
+});
+
+// Account -> show/hide password
+$('#nxter-new-passphrase-switcher').click( function(e) {
+  if ( $('#nxter-new-passphrase').attr('type') === 'password' ) { 
+    $('#nxter-new-passphrase').prop('type', 'text'); 
+    $('#nxter-new-passphrase-switcher').html('Hide');
+  } else {
+    $('#nxter-new-passphrase').prop('type', 'password'); 
+    $('#nxter-new-passphrase-switcher').html('Show');
+  }
+});
+
+// TOKEN -> show/hide password
+$('#nxter-token-passphrase-switcher').click( function(e) {
+  if ( $('#nxter-token-passphrase').attr('type') === 'password' ) { 
+    $('#nxter-token-passphrase').prop('type', 'text'); 
+    $('#nxter-token-passphrase-switcher').html('Hide');
+  } else {
+    $('#nxter-token-passphrase').prop('type', 'password'); 
+    $('#nxter-token-passphrase-switcher').html('Show');
+  }
+});
+// SIGN -> show/hide password
+$('#nxter-sign-passphrase-switcher').click( function(e) {
+  if ( $('#nxter-sign-passphrase').attr('type') === 'password' ) { 
+    $('#nxter-sign-passphrase').prop('type', 'text'); 
+    $('#nxter-sign-passphrase-switcher').html('Hide');
+  } else {
+    $('#nxter-sign-passphrase').prop('type', 'password'); 
+    $('#nxter-sign-passphrase-switcher').html('Show');
+  }
 });
 
 //NRS.constants.GENESIS_BLOCK_ID = response.genesisBlockId;

@@ -59,7 +59,10 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Your passphrase: </span>
             </div>
-            <input class="form-control" type="text" id="nxter-new-passphrase">
+            <input class="form-control" type="password" id="nxter-new-passphrase">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id="nxter-new-passphrase-switcher" type="button">Show</button>
+            </div>
           </div>
         </div></div>
         <div class="row d-print-none"><div class="col-12">
@@ -191,8 +194,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text">Your passphrase: </span>
             </div>
-            <input class="form-control" type="text" id="nxter-token-passphrase">
+            <input class="form-control" type="password" id="nxter-token-passphrase">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id="nxter-token-passphrase-switcher" type="button">Show</button>
+            </div>
+
           </div>
+
+
         </div></div>
 
         <div class="row"><div class="col-12">
@@ -302,8 +311,8 @@
           2. Click ‘Advanced’ &rarr; ‘Do Not Broadcast’ &rarr; ‘Do Not Sign’ &rarr; ‘SUBMIT’<br>
           3. Copy the ‘Unsigned Transaction Bytes’ into a text document, save on USB <br>
           4. Open SIGBRO OFFLINE on an offline device, insert the USB key<br>
-          5. Enter your passphrase into the for field below.
-          6. Paste the Unsigned Transaction Bytes from USB into the form field above<br>
+          5. Enter your passphrase into the form field below<br>
+          6. Paste the Unsigned Transaction Bytes from USB into the form field below<br>
           7. Click ‘CHECK’. You will now see your transaction details below the form field - verify them<br>
           8. Once verified  &rarr; Click ’SIGN’<br>
           9. Save your signed transaction bytes on the USB key<br>
@@ -318,6 +327,9 @@
               <span class="input-group-text">Your passphrase: </span>
             </div>
             <input class="form-control" type="password" id="nxter-sign-passphrase">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" id="nxter-sign-passphrase-switcher" type="button">Show</button>
+            </div>
           </div>
         </div></div>
 
