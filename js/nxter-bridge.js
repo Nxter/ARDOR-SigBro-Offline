@@ -169,6 +169,7 @@ $('#nxter-print-qr-section').click(function(e) {
   var text4qr = $('#nxter-text-for-qr-code').val().trim();
   $('#nxter-qr-print-qrcode').html('');
   $('#nxter-qr-print-qrcode').qrcode({ width: 180, height: 180, text: text4qr });
+  $('#nxter-qr-print-account').html(text4qr);
 
   // hide other printable fields
   $('#nxter-section-print-new-section').removeClass('d-print-block') 
