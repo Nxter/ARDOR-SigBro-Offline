@@ -28,13 +28,29 @@ $('#nxter-random-passphrase').click( function(e) {
   $('#nxter-new-account').val(accountId);
 
   // generate qr
-  $('#nxter-new-pass-qrcode').html('');
-  $('#nxter-new-account-qrcode').html('');
 
   $('#nxter-new-section').removeClass('d-none');
 
-  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
-  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
+  var QRC = qrcodegen.QrCode;
+  var qr0 = QRC.encodeText(new_random_password, QRC.Ecc.HIGH);
+
+  var code = qr0.toSvgString(4);
+  var svg = document.getElementById("nxter-new-pass-qrcode");
+
+  svg.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code)[1]);
+  svg.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code)[1]);
+  svg.style.removeProperty("display");
+
+
+  var qr2 = QRC.encodeText(accountId, QRC.Ecc.HIGH);
+
+  var code2 = qr2.toSvgString(4);
+  var svg2 = document.getElementById("nxter-new-account-qrcode");
+
+  svg2.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code2)[1]);
+  svg2.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code2)[1]);
+  svg2.style.removeProperty("display");
+
   // hide hint 
   $('#nxter-generate-own-account-tip').addClass('d-none');
 });
@@ -45,8 +61,8 @@ $('#nxter-clear-new-section').click( function(e) {
   $('#nxter-new-passphrase').val('');
   $('#nxter-new-account').val('');
   $('#nxter-new-publickey').val('');
-  $('#nxter-new-pass-qrcode').html('');
-  $('#nxter-new-account-qrcode').html('');
+  $('#nxter-new-pass-qrcode').css("display", "none");
+  $('#nxter-new-account-qrcode').css("display", "none");
   $('#nxter-new-section').addClass('d-none');
 
   $('#nxter-generate-own-account-tip').addClass('d-none');
@@ -60,14 +76,27 @@ function generate_account_and_qr() {
   $('#nxter-new-publickey').val(publicKey);
   $('#nxter-new-account').val(accountId);
 
-  // generate qr
-  $('#nxter-new-pass-qrcode').html('');
-  $('#nxter-new-account-qrcode').html('');
-
   $('#nxter-new-section').removeClass('d-none');
 
-  $('#nxter-new-pass-qrcode').qrcode({ width: 220, height: 220, text: new_random_password });
-  $('#nxter-new-account-qrcode').qrcode({ width: 220, height: 220, text: accountId });
+  var QRC = qrcodegen.QrCode;
+  var qr0 = QRC.encodeText(new_random_password, QRC.Ecc.HIGH);
+
+  var code = qr0.toSvgString(4);
+  var svg = document.getElementById("nxter-new-pass-qrcode");
+
+  svg.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code)[1]);
+  svg.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code)[1]);
+  svg.style.removeProperty("display");
+
+
+  var qr2 = QRC.encodeText(accountId, QRC.Ecc.HIGH);
+
+  var code2 = qr2.toSvgString(4);
+  var svg2 = document.getElementById("nxter-new-account-qrcode");
+
+  svg2.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code2)[1]);
+  svg2.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code2)[1]);
+  svg2.style.removeProperty("display");
 }
 
 // Wallet -> Autogenerate
@@ -80,17 +109,36 @@ $('#nxter-print-new-section').click(function(e) {
   e.preventDefault();
   // clear old data
   $('#nxter-new-print-account').html('');
-  $('#nxter-new-print-account-qrcode').html('');
-  $('#nxter-new-print-account-passphrase-qrcode').html('');
   // update data for accountRS
   accRS = $('#nxter-new-account').val();
   $('#nxter-new-print-account').html( accRS );
-  $('#nxter-new-print-account-qrcode').qrcode({ width: 180, height: 180, text: accRS });
+
+  var QRC = qrcodegen.QrCode;
+  var qr0 = QRC.encodeText(accRS, QRC.Ecc.HIGH);
+
+  var code = qr0.toSvgString(4);
+  var svg = document.getElementById("nxter-new-print-account-qrcode");
+
+  svg.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code)[1]);
+  svg.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code)[1]);
+  svg.style.removeProperty("display"); 
+
   // update data for private section
   pubK = $('#nxter-new-publickey').val().trim();
   prvK = $('#nxter-new-passphrase').val().trim();
   $('#nxter-new-print-account-public-key').html( pubK );
   $('#nxter-new-print-account-passphrase').html( prvK );
+
+  var qr2 = QRC.encodeText(prvK, QRC.Ecc.HIGH);
+
+  var code2 = qr2.toSvgString(4);
+  var svg2 = document.getElementById("nxter-new-print-account-passphrase-qrcode");
+
+  svg2.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code2)[1]);
+  svg2.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code2)[1]);
+  svg2.style.removeProperty("display");
+
+
   $('#nxter-new-print-account-passphrase-qrcode').qrcode({ width: 180, height: 180, text: prvK });;
   // hide other printable fields
   $('#nxter-section-print-qr-section').removeClass('d-print-block');
@@ -147,19 +195,18 @@ $('#nxter-clear-qr-section').click( function(e) {
 // QR -> Generate
 $('#nxter-text-for-qr-code').keyup( function(e) {
   var text4qr = $('#nxter-text-for-qr-code').val().trim();
-  $('#nxter-qr-qrcode').html('');
-  $('#nxter-qr-qrcode').qrcode({ width: 220, height: 220, text: text4qr });
+
+  var QRC = qrcodegen.QrCode;
+  var qr0 = QRC.encodeText(text4qr, QRC.Ecc.HIGH);
+
+  var code = qr0.toSvgString(4);
+  var svg = document.getElementById("nxter-qr-qrcode");
+
+  svg.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code)[1]);
+  svg.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code)[1]);
+  svg.style.removeProperty("display");
+
   $('#nxter-qr-section').removeClass('d-none');
-});
-
-
-$('#nxter-generate-qr-code').click( function(e) {
-  e.preventDefault();
-  var text4qr = $('#nxter-text-for-qr-code').val().trim();
-  $('#nxter-qr-qrcode').html('');
-  $('#nxter-qr-qrcode').qrcode({ width: 220, height: 220, text: text4qr });
-  $('#nxter-qr-section').removeClass('d-none');
-
 });
 
 // QR -> Print
@@ -167,8 +214,17 @@ $('#nxter-print-qr-section').click(function(e) {
   e.preventDefault();
 
   var text4qr = $('#nxter-text-for-qr-code').val().trim();
-  $('#nxter-qr-print-qrcode').html('');
-  $('#nxter-qr-print-qrcode').qrcode({ width: 180, height: 180, text: text4qr });
+  
+  var QRC = qrcodegen.QrCode;
+  var qr0 = QRC.encodeText(text4qr, QRC.Ecc.HIGH);
+
+  var code = qr0.toSvgString(4);
+  var svg = document.getElementById("nxter-qr-print-qrcode");
+
+  svg.setAttribute("viewBox", / viewBox="([^"]*)"/.exec(code)[1]);
+  svg.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code)[1]);
+  svg.style.removeProperty("display");
+
   $('#nxter-qr-print-account').html(text4qr);
 
   // hide other printable fields

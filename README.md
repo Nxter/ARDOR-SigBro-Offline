@@ -26,10 +26,12 @@ SIGBRO OFFLINE is open source software under the MIT license and is part of the 
 P.S. Still cautious about using this tool? Still concerned your account passphrase will be exposed? A simple test is to use your browser’s “developers tools” functionality and go to the “Network” tab to see the requests that SIGBRO OFFLINE makes.
 
 ## SHA256                                                                                                                                                              
+ - 2019-09-10. `b1672f815c88682190508b3948f80301d59fec290bccecfdc53e407be0d70c8d  ardor.html`
  - 2018-06-13. `4663c09051456af7e733eaf04a65ebba6fb31a5dc104326db653972d63ef55b1  ardor.html`
  - 2018-06-06. `10b9bf34ecbc69f7fe1a444c9168b8766c2f206c13a3b3846e9e1d18d654886  ardor.html`
  - 2018-06-02. `2c28bdbae5ecf5b652add2686710096eff494f9427d7aeccafe47ae4b83c209c  ardor.html`                                                                                          
-## Changelog                                                                                                                                                           
+## Changelog                                                                                                                                                          
+ - 2019-09-10. Change qrcode engine.
  - 2018-06-13. Change texts and captions
  - 2018-06-06. Add Show/Hide buttons. Fixed mistypes.
  - 2018-06-02. Rebranding  
