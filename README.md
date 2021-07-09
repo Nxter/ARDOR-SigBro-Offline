@@ -1,4 +1,4 @@
-## Description                                                                                                                                                          
+## Description
 
 SIGBRO OFFLINE is a lightweight, downloadable tool for the Ardor blockchain platform. It is designed to keep your passphrase (private key) safe by letting you create accounts, sign transactions, and perform other transactions on Ardor parent chain / Ardor child chain in a secure, offline environment.
 
@@ -25,12 +25,15 @@ SIGBRO OFFLINE is open source software under the MIT license and is part of the 
 
 P.S. Still cautious about using this tool? Still concerned your account passphrase will be exposed? A simple test is to use your browser’s “developers tools” functionality and go to the “Network” tab to see the requests that SIGBRO OFFLINE makes.
 
-## SHA256                                                                                                                                                              
+## SHA256
+ - 2021-07-09. `304cc29e3a8a8ddf420ce10bc48e6882c6a4ecaa44b41121ae6e9c2d7dc633a2 ardor.html`
  - 2019-09-10. `b1672f815c88682190508b3948f80301d59fec290bccecfdc53e407be0d70c8d  ardor.html`
  - 2018-06-13. `4663c09051456af7e733eaf04a65ebba6fb31a5dc104326db653972d63ef55b1  ardor.html`
  - 2018-06-06. `10b9bf34ecbc69f7fe1a444c9168b8766c2f206c13a3b3846e9e1d18d654886  ardor.html`
- - 2018-06-02. `2c28bdbae5ecf5b652add2686710096eff494f9427d7aeccafe47ae4b83c209c  ardor.html`                                                                                          
-## Changelog                                                                                                                                                          
+ - 2018-06-02. `2c28bdbae5ecf5b652add2686710096eff494f9427d7aeccafe47ae4b83c209c  ardor.html`
+
+## Changelog
+ - 2021-07-09. Fixed js errors and updated footer
  - 2019-09-10. Change qrcode engine.
  - 2018-06-13. Change texts and captions
  - 2018-06-06. Add Show/Hide buttons. Fixed mistypes.
