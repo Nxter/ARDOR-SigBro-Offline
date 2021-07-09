@@ -5,8 +5,8 @@ $('#nxter-generate-account').click( function(e) {
   $('#nxter-new-passphrase').val('');
   $('#nxter-new-account').val('');
   $('#nxter-new-publickey').val('');
-  $('#nxter-new-pass-qrcode').html('');
-  $('#nxter-new-account-qrcode').html('');
+  $('#nxter-new-pass-qrcode').html('<rect width="100%" height="100%" fill="#ffffff"></rect><path d fill="#000000"></path>');
+  $('#nxter-new-account-qrcode').html('<rect width="100%" height="100%" fill="#ffffff"></rect><path d fill="#000000"></path>');
   $('#nxter-new-section').addClass('d-none');
 
   $('#nxter-generate-own-account-tip').removeClass('d-none');
@@ -138,8 +138,6 @@ $('#nxter-print-new-section').click(function(e) {
   svg2.querySelector("path").setAttribute("d", / d="([^"]*)"/.exec(code2)[1]);
   svg2.style.removeProperty("display");
 
-
-  $('#nxter-new-print-account-passphrase-qrcode').qrcode({ width: 180, height: 180, text: prvK });;
   // hide other printable fields
   $('#nxter-section-print-qr-section').removeClass('d-print-block');
   // show form for print
@@ -415,4 +413,4 @@ NRS.constants.ACCOUNT_MASK_LEN = NRS.constants.ACCOUNT_MASK_PREFIX.length;
 NRS.constants.MAX_INT_JAVA = 2147483647; 
 
 
-console.log('Welcome to SIGBRO OFFLINE for Ardor');
+console.log('Welcome to SIGBRO OFFLINE for Ardor. build 20210709');
